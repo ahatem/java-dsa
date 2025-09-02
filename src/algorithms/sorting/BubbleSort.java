@@ -9,7 +9,7 @@ public final class BubbleSort {
             for (int j = 0; j < array.length - 1 - i; j++) {
                 // Compare adjacent elements, bubble largest to end            
                 if (array[j].compareTo(array[j + 1]) > 0) {
-                    swap(array, j, j + 1);
+                    Sort.swap(array, j, j + 1);
                     swapped = true;
                 }
             }
@@ -18,11 +18,5 @@ public final class BubbleSort {
                 break;
             }
         }
-    }
-
-    private static <T> void swap(T[] array, int firstIndex, int secondIndex) {
-        T temp = array[firstIndex];
-        array[firstIndex] = array[secondIndex];
-        array[secondIndex] = temp;
     }
 }
