@@ -1,4 +1,4 @@
-package linear.queue;
+package datastructures.linear.queue;
 
 public class LinkedQueue<T> {
     private class Node {

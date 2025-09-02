@@ -1,9 +1,9 @@
-package nonlinear.tree;
+package datastructures.nonlinear.tree;
 
 import java.util.function.Consumer;
 
-import linear.queue.LinkedQueue;
-import linear.stack.LinkedStack;
+import datastructures.linear.queue.LinkedQueue;
+import datastructures.linear.stack.LinkedStack;
 
 public class BinarySearchTree<T extends Comparable<T>> {
     public static enum TreeTraverse {

@@ -1,4 +1,4 @@
-package linear.stack;
+package datastructures.linear.stack;
 
 public class LinkedStack<T> {
     private class Node {

@@ -1,4 +1,4 @@
-package linear.queue;
+package datastructures.linear.queue;
 
 public class ArrayQueue<T> {
     private static final int DEFAULT_CAPACITY = 4;

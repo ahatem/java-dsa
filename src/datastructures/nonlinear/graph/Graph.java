@@ -1,11 +1,11 @@
-package nonlinear.graph;
+package datastructures.nonlinear.graph;
 
-import linear.array.DynamicArray;
-import linear.linkedlist.LinkedList;
-import linear.queue.LinkedQueue;
-import linear.stack.LinkedStack;
-import nonlinear.hash.HashMap;
-import nonlinear.hash.HashSet;
+import datastructures.linear.array.DynamicArray;
+import datastructures.linear.linkedlist.LinkedList;
+import datastructures.linear.queue.LinkedQueue;
+import datastructures.linear.stack.LinkedStack;
+import datastructures.nonlinear.hash.HashMap;
+import datastructures.nonlinear.hash.HashSet;
 
 public class Graph<T> {
     // we could add weight by replacing T with HashMap<T, Integer> or Node<T>

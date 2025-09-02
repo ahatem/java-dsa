@@ -1,4 +1,4 @@
-package linear.linkedlist;
+package datastructures.linear.linkedlist;
 
 public class DoublyCircularLinkedList<T> {
 

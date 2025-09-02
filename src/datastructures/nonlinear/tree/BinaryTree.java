@@ -1,6 +1,6 @@
-package nonlinear.tree;
+package datastructures.nonlinear.tree;
 
-import linear.queue.LinkedQueue;
+import datastructures.linear.queue.LinkedQueue;
 
 public class BinaryTree<T> {
     private class Node {

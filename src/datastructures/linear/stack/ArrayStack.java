@@ -1,4 +1,4 @@
-package linear.stack;
+package datastructures.linear.stack;
 
 public class ArrayStack<T> {
     private static final int DEFAULT_CAPACITY = 4;

@@ -1,4 +1,4 @@
-package nonlinear.heap;
+package datastructures.nonlinear.heap;
 
 public class Heap<T extends Comparable<T>> {
 

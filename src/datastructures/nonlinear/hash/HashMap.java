@@ -1,8 +1,8 @@
-package nonlinear.hash;
+package datastructures.nonlinear.hash;
 
 import java.util.Objects;
 
-import linear.array.DynamicArray;
+import datastructures.linear.array.DynamicArray;
 
 public class HashMap<K, V> {
     private static class Node<K, V> {
