@@ -25,4 +25,12 @@ public final class Sort {
             case DESCENDING -> firstItem.compareTo(secondItem) < 0;
         };
     }
+
+    public static <T extends Comparable<T>> int compare(T first, T second, Order order) {
+        return switch (order) {
+            case ASCENDING -> first.compareTo(second);
+            case DESCENDING -> second.compareTo(first);
+        };
+    }
+
 }
