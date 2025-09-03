@@ -12,11 +12,16 @@ public final class Sort {
         array[secondIndex] = temp;
     }
 
-    public static <T extends Comparable<T>> boolean shouldSwap(T firstItem, T secondItem, Order sortOrder) {
+    /**
+     * Checks if two items are in the wrong relative order according to the specified sort order.
+     * For example, in ASCENDING order, this returns true if the first item is greater than the second.
+     * @return true if the elements are out of order, false otherwise.
+     */
+    public static <T extends Comparable<T>> boolean isOutOfOrder(T firstItem, T secondItem, Order sortOrder) {
         return switch (sortOrder) {
-            // swap if the first item is greater than the second
+            // In ASC order, they're out of order if the first is greater than the second.
             case ASCENDING -> firstItem.compareTo(secondItem) > 0;
-            // swap if the first item is less than the second
+            // In DESC order, they're out of order if the first is less than the second.
             case DESCENDING -> firstItem.compareTo(secondItem) < 0;
         };
     }

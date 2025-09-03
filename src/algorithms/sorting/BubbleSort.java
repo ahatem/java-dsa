@@ -8,7 +8,7 @@ public final class BubbleSort {
             boolean swapped = false;
             for (int j = 0; j < array.length - 1 - i; j++) {
                 // Compare adjacent elements, bubble largest to end            
-                if (Sort.shouldSwap(array[j], array[j + 1], order)) {
+                if (Sort.isOutOfOrder(array[j], array[j + 1], order)) {
                     Sort.swap(array, j, j + 1);
                     swapped = true;
                 }

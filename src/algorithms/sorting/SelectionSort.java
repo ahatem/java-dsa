@@ -11,7 +11,7 @@ public final class SelectionSort {
             // Find the true extreme element in the rest of the array
             for (int j = i + 1; j < array.length; j++) {
                 // If the current element is more "extreme", we have a new candidate.
-                if (Sort.shouldSwap(array[extremeElementIndex], array[j], order)) {
+                if (Sort.isOutOfOrder(array[extremeElementIndex], array[j], order)) {
                     extremeElementIndex = j;
                 }
             }
