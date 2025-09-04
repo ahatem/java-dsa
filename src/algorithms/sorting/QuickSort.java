@@ -13,32 +13,35 @@ public final class QuickSort {
         }
 
         int partitionIndex = partition(array, low, high, order);
-        quickSort(array, low, partitionIndex - 1, order);
+        quickSort(array, low, partitionIndex, order);
         quickSort(array, partitionIndex + 1, high, order);
     }
 
-    // Lomuto Partition with pivot being the middle element (safer choice for better performance)
+    // Hoare partition with pivot being the first element
     private static <T extends Comparable<T>> int partition(T[] arr, int low, int high, Sort.Order order) {
-        int middle = (low + high) / 2;
-        Sort.swap(arr, middle, high);
+        // Choose the first element as pivot
+        T pivot = arr[low];
+        int i = low - 1;  // Left pointer
+        int j = high + 1; // Right pointer
 
-        T pivot = arr[high];
-
-        // 'i' will be the final partition index. All elements smaller than the pivot
-        // will be moved to the left of 'i'.
-        int i = low;
-        for (int j = low; j < high; j++) {
-            // If the current element is smaller than the pivot...
-            if (Sort.compare(arr[j], pivot, order) < 0) {
-                // ...move it to the "smaller" partition.
-                Sort.swap(arr, i, j);
+        while (true) {
+            // Move i forward until we find an element >= pivot
+            do {
                 i++;
+            } while (Sort.compare(arr[i], pivot, order) < 0);
+
+            // Move j backward until we find an element <= pivot
+            do {
+                j--;
+            } while (Sort.compare(arr[j], pivot,order) > 0);
+
+            // If pointers cross, return the partition point
+            if (i >= j) {
+                return j;
             }
+
+            // Swap elements at i and j
+            Sort.swap(arr, i, j);
         }
-
-        // Place the pivot in its final, correct position.
-        Sort.swap(arr, i, high);
-
-        return i;
     }
 }
