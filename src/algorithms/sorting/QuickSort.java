@@ -1,7 +1,7 @@
 package algorithms.sorting;
 
 public final class QuickSort {
-    // Space: O(n)
+    // Space: O(log n) average, O(n) worst (recursion stack depth)
     // Time : O(n log n) average/best case, O(n^2) worst
     public static <T extends Comparable<T>> void sort(T[] array, Sort.Order order) {
         quickSort(array, 0, array.length - 1, order);
@@ -17,24 +17,25 @@ public final class QuickSort {
         quickSort(array, partitionIndex + 1, high, order);
     }
 
-    // Lomuto Partition with pivot being the first element
-    public static <T extends Comparable<T>> int partition(T[] arr, int low, int high, Sort.Order order) {
-        // Choose the first element as pivot
-        T pivot = arr[low];
+    // Lomuto Partition with pivot being the last element (Standard implementation)
+    private static <T extends Comparable<T>> int partition(T[] arr, int low, int high, Sort.Order order) {
+        T pivot = arr[high];
 
-        int i = low; // Pointer for the next smaller element
-        // Scan from low + 1 to high cuz the pivot at low so we need to start at index after it
-        for (int j = low + 1; j <= high; j++) {
-            // If current element is smaller than or equal to pivot
-            if (Sort.compare(arr[j], pivot, order) <= 0) {
-                i++;                  // Move the boundary of smaller elements
-                Sort.swap(arr, i, j); // Swap arr[i] and arr[j]
+        // 'i' will be the final partition index. All elements smaller than the pivot
+        // will be moved to the left of 'i'.
+        int i = low;
+        for (int j = low; j < high; j++) {
+            // If the current element is smaller than the pivot...
+            if (Sort.compare(arr[j], pivot, order) < 0) {
+                // ...move it to the "smaller" partition.
+                Sort.swap(arr, i, j);
+                i++;
             }
         }
 
-        // Place pivot in its correct position
-        Sort.swap(arr, low, i);
+        // Place the pivot in its final, correct position.
+        Sort.swap(arr, i, high);
 
-        return i; // Return the pivot's final position
+        return i;
     }
 }
