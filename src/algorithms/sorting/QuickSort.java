@@ -17,8 +17,11 @@ public final class QuickSort {
         quickSort(array, partitionIndex + 1, high, order);
     }
 
-    // Lomuto Partition with pivot being the last element (Standard implementation)
+    // Lomuto Partition with pivot being the middle element (safer choice for better performance)
     private static <T extends Comparable<T>> int partition(T[] arr, int low, int high, Sort.Order order) {
+        int middle = (low + high) / 2;
+        Sort.swap(arr, middle, high);
+
         T pivot = arr[high];
 
         // 'i' will be the final partition index. All elements smaller than the pivot
