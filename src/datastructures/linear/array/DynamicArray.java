@@ -1,5 +1,6 @@
 package datastructures.linear.array;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class DynamicArray<T> {
@@ -158,6 +159,18 @@ public class DynamicArray<T> {
 
     public T[] toArray() {
         return Arrays.copyOf(data, this.size);
+    }
+
+    @SuppressWarnings("unchecked")
+    public T[] toArray(T[] a) {
+        if (a.length < size) {
+            return (T[]) Arrays.copyOf(data, size, a.getClass());
+        }
+        System.arraycopy(data, 0, a, 0, size);
+        if (a.length > size) {
+            a[size] = null;
+        }
+        return a;
     }
 
     @SuppressWarnings("unchecked")
